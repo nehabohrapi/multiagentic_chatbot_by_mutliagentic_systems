@@ -1,0 +1,68 @@
+data/chroma/
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python virtual environment
+venv/
+.venv/
+env/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+
+# Test and coverage files
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+
+# IDE and editor files
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and temporary files
+*.log
+tmp/
+temp/
+scratch/
+
+# Generated vector database
+chroma_db/
+**/chroma_db/
+
+# Uploaded documents, evaluation data, and generated data
+uploads/
+documents/*.pdf
+data/
+/verifier.db
+/verifier.db-*
+.deepeval/
+
+# SQLite journal and write-ahead log files
+*.db-journal
+*.db-shm
+*.db-wal
+
+# Streamlit secrets
+.streamlit/secrets.toml
+
+# Local configuration
+.env.local

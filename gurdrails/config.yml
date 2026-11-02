@@ -1,0 +1,38 @@
+rails:
+  input:
+    flows:
+      - mask sensitive data on input
+
+  config:
+    sensitive_data_detection:
+      spacy_model: "en_core_web_sm"
+      input:
+        entities:
+          - EMAIL_ADDRESS
+          - PHONE_NUMBER
+          - CREDIT_CARD
+        mask_token: "*"
+        score_threshold: 0.2
+    output_rails:
+      normalize_unicode: true
+      strip_control_characters: true
+      max_retries: 0
+      citation_validation:
+        enabled: true
+        verify_document_id: true
+        verify_chunk_id: true
+        verify_page_number: true
+      summary_coverage:
+        enabled: true
+        max_facts: 100
+        min_fact_overlap: 0.5
+      structure:
+        required_fields:
+          - answer
+          - citations
+          - citation_metadata
+          - validation
+      prompt_leak_patterns:
+        - '<\s*/?\s*(?:system|instruction|prompt|context|document_segment|document_passage)\s*>'
+        - '\[\s*(?:system|instruction|system_message)\s*\]'
+        - '(?:^|\n)\s*(?:system|assistant|user|human)\s*:\s*'
